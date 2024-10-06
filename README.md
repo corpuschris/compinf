@@ -1,1 +1,2 @@
 # compinf
+# Author: Christiano Ferreira
