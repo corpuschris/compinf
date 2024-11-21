@@ -31,6 +31,11 @@ I modified the download command to save the weather data with a timestamped file
 ### Task 7: Create the Script
 I wrote a script called `weather.sh` to automate downloading and saving the weather data with a timestamp. I made it executable and tested it.
 
+### Task 8: Create a Notebook
+I created a Jupyter Notebook called `weather.ipynb` at the root of the repository. In this notebook, I summarized how I completed Tasks 1 to 7. It includes:
+- Descriptions of the commands I used.
+- An explanation of their role in completing each task.
+
 ## Running the Script
 To run the script, use the following command:
 
