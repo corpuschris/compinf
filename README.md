@@ -41,3 +41,12 @@ To run the script, use the following command:
 
 ```bash
 ./weather.sh
+
+### Task 9: Analyze Weather Data with pandas
+In the `weather.ipynb` notebook, I used the `pandas` library to analyze one of the weather data files downloaded with the `weather.sh` script. I followed these steps:
+- Loaded the weather data using the `read_json()` function.
+- Examined the structure of the data, including column names, data types, and missing values.
+- Generated summary statistics for numeric columns like temperature and wind speed.
+- Provided an explanation of the dataset's contents, including details about each column.
+
+The notebook now contains a clear analysis of the weather data, showcasing how pandas can be used to work with JSON files and extract useful insights.
