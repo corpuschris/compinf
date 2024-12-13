@@ -7,11 +7,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04 # Specify a stable Ubuntu version
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "corpuschris"
+        git config --global user.email "netofr@gmail.com"
 
     - name: Make weather.sh Executable
       run: chmod +x weather.sh
@@ -20,9 +25,9 @@ jobs:
       run: ./weather.sh
 
     - name: Commit and Push Changes
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git config --global user.name "corpuschris"
-        git config --global user.email "netofr@gmail.com"
         git add data/weather/
         git commit -m "Automated update of weather data"
         git push
