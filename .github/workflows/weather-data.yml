@@ -1,22 +1,20 @@
-# .github/workflows/weather-data.yml
-
 name: Weather Data Automation
 
 on:
-  # Trigger the workflow daily at 10 AM
   schedule:
-    - cron: '0 10 * * *' # Every day at 10 AM UTC
-  # Allow manual triggering
-  workflow_dispatch: # Allows manually triggering the workflow
+    - cron: '0 10 * * *' # Run daily at 10am UTC
+  workflow_dispatch: # Allow manual triggering of the workflow
 
 jobs:
   build:
-    # Use an Ubuntu virtual machine
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+
+    - name: Make weather.sh Executable
+      run: chmod +x weather.sh
 
     - name: Run Weather Script
       run: ./weather.sh
