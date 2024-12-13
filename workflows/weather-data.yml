@@ -1,0 +1,30 @@
+# .github/workflows/weather-data.yml
+
+name: Weather Data Automation
+
+on:
+  # Trigger the workflow daily at 10 AM
+  schedule:
+    - cron: '0 10 * * *' # Every day at 10 AM UTC
+  # Allow manual triggering
+  workflow_dispatch: # Allows manually triggering the workflow
+
+jobs:
+  build:
+    # Use an Ubuntu virtual machine
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Weather Script
+      run: ./weather.sh
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "corpuschris"
+        git config --global user.email "netofr@gmail.com"
+        git add data/weather/
+        git commit -m "Automated update of weather data"
+        git push
